@@ -55,6 +55,7 @@
     glidepoint_lh_listener: glidepoint_listener {
         compatible = "zmk,input-listener";
         status = "disabled";
+        device = <&trackpad>;
     };
 };
 

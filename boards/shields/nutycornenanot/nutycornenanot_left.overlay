@@ -49,7 +49,6 @@
 };
 
 &glidepoint_rh_listener {
-    device = <&trackpad>;
     status = "ok";
 };
 &glidepoint_lh_listener {
