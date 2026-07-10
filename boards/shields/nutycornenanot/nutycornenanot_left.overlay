@@ -57,4 +57,7 @@
     //input-processors = <&zip_xy_scaler 1 1>;
 };
 
+&trackpad {
+    status = "okay";
+}
 
