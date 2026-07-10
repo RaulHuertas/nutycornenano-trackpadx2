@@ -50,11 +50,11 @@
 
 &glidepoint_rh_listener {
     status = "ok";
-    input-processors = <&zip_xy_scaler 2 1>;
+    //input-processors = <&zip_xy_scaler 2 1>;
 };
 &glidepoint_lh_listener {
     status = "ok";
-    input-processors = <&zip_xy_scaler 1 1>;
+    //input-processors = <&zip_xy_scaler 1 1>;
 };
 
 
