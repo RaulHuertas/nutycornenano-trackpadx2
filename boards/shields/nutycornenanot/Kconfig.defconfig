@@ -5,8 +5,11 @@ config ZMK_KEYBOARD_NAME
     default "NutyCorneNanoT"
 config ZMK_POINTING
     default y
+config I2C
+    default y
 config ZMK_POINTING_SMOOTH_SCROLLING
     default y
+
 config ZMK_SPLIT_ROLE_CENTRAL
     default y
 

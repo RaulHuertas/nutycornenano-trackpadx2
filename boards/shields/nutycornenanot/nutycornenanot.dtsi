@@ -21,6 +21,23 @@
 		compatible = "zmk,kscan-gpio-matrix";
 	};
 
+    &xiao_i2c {
+        status = "okay";
+        clock-frequency = <I2C_BITRATE_STANDARD>;
+        trackpad: glidepoint@2a { 
+            compatible = "cirque,pinnacle";
+            status = "okay";
+            reg = <0x2a>;
+            dr-gpios = <&gpio1 3 (GPIO_ACTIVE_HIGH)>;
+            sensitivity = "2x";
+            sleep;
+            x-invert;
+            no-secondary-tap;
+            //y-invert;
+            //rotate-90;
+        };
+    };
+
     split_inputs {
         #address-cells = <1>;
         #size-cells = <0>;
