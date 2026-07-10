@@ -47,12 +47,12 @@
             reg = <0>;
         };
     };
-    glidepoint_rh_listener: glidepoint_listener {
+    glidepoint_rh_listener: glidepoint_rh_listener {
         compatible = "zmk,input-listener";
         status = "disabled";
         device = <&glidepoint_split>;
     };
-    glidepoint_lh_listener: glidepoint_listener {
+    glidepoint_lh_listener: glidepoint_lh_listener {
         compatible = "zmk,input-listener";
         status = "disabled";
         device = <&trackpad>;
