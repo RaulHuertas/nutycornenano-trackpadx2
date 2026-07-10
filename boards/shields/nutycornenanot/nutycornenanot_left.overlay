@@ -48,8 +48,13 @@
     status = "ok"; 
 };
 
-&glidepoint_listener {
+&glidepoint_rh_listener {
+    device = <&trackpad>;
     status = "ok";
+};
+&glidepoint_lh_listener {
+    status = "ok";
+    input-processors = <&zip_xy_scaler 1 1>;
 };
 
 

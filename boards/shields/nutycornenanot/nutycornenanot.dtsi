@@ -26,7 +26,8 @@
         clock-frequency = <I2C_BITRATE_STANDARD>;
         trackpad: glidepoint@2a { 
             compatible = "cirque,pinnacle";
-            status = "okay";
+            //status = "okay";
+            status = "disabled";
             reg = <0x2a>;
             dr-gpios = <&gpio1 3 (GPIO_ACTIVE_HIGH)>;
             sensitivity = "2x";
@@ -46,10 +47,14 @@
             reg = <0>;
         };
     };
-    glidepoint_listener: glidepoint_listener {
+    glidepoint_rh_listener: glidepoint_listener {
         compatible = "zmk,input-listener";
         status = "disabled";
         device = <&glidepoint_split>;
+    };
+    glidepoint_lh_listener: glidepoint_listener {
+        compatible = "zmk,input-listener";
+        status = "disabled";
     };
 };
 
