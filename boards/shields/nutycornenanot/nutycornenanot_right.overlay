@@ -1,0 +1,69 @@
+#include <input/processors.dtsi>  
+#include <dt-bindings/zmk/input_transform.h>
+#include <zephyr/dt-bindings/input/input-event-codes.h>
+
+#include "nutycornenanot.dtsi"
+
+&pinctrl {
+    i2c0_default {
+        group1 {
+            bias-pull-up;
+        };
+    };
+    i2c0_sleep {
+        group1 {
+            bias-pull-up;
+        };
+    };
+};
+
+&default_transform {
+	col-offset = <5>;
+};
+
+&kscan0 {
+    compatible = "zmk,kscan-gpio-matrix";
+    diode-direction = "row2col";
+    wakeup-source;
+
+    row-gpios
+        = <&gpio1  7 (GPIO_ACTIVE_HIGH)>
+        , <&gpio0 10 (GPIO_ACTIVE_HIGH)>
+        , <&gpio0  9 (GPIO_ACTIVE_HIGH)>
+        , <&gpio1  1 (GPIO_ACTIVE_HIGH)>
+        ;
+    col-gpios
+        = <&gpio0  2 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+        , <&gpio0  3 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+        , <&gpio0 28 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+        , <&gpio0 29 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+        , <&gpio1 11 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+        ;
+
+};
+
+ &xiao_i2c {
+    status = "okay";
+    clock-frequency = <I2C_BITRATE_STANDARD>;
+    trackpad: glidepoint@2a { 
+        compatible = "cirque,pinnacle";
+        status = "okay";
+        reg = <0x2a>;
+        dr-gpios = <&gpio1 3 (GPIO_ACTIVE_HIGH)>;
+        sensitivity = "2x";
+        sleep;
+        x-invert;
+        no-secondary-tap;
+        //y-invert;
+        //rotate-90;
+    };
+};
+
+&glidepoint_split {
+    device = <&trackpad>;
+    //input-processors = <&zip_xy_transform (INPUT_TRANSFORM_XY_SWAP | INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)>;
+    input-processors = <&zip_xy_scaler 1 1>;
+};
+
+
+

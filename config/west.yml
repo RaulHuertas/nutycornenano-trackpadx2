@@ -6,9 +6,18 @@ manifest:
       url-base: https://github.com/zmkfirmware
     # Additional modules containing boards/shields/custom code can be listed here as well
     # See https://docs.zephyrproject.org/3.2.0/develop/west/manifest.html#projects
+    - name: RaulHuertas
+      url-base: https://github.com/RaulHuertas
   projects:
     - name: zmk
       remote: zmkfirmware
+      revision: v0.3.0
       import: app/west.yml
+    - name: cirque-input-module
+      remote: RaulHuertas
+      revision: main
+    - name: zmk-rgbled-widget  # <-- new entry
+      remote: RaulHuertas
+      revision: v0.3           # MUST match your ZMK version!
   self:
     path: config

@@ -1,0 +1,14 @@
+file_format: "1"
+id: nutycornenanot
+name: NutyCorneNanoT
+type: shield
+url: https://github.com/RaulHuertas/nutycornenano-trackpad/
+requires: [seeeduino_xiao_ble]
+exposes: [trackpad]
+features:
+  - keys
+  - studio
+  - i2c
+siblings:
+  - nutymini_left
+  - nutymini_right

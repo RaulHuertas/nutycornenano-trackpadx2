@@ -5,16 +5,29 @@
 # pass flags to the build command, `snippet` to add a Zephyr snippet, and
 # `artifact-name` to assign a name to distinguish build outputs from each other:
 #
-# board: [ "nice_nano" ]
-# shield: [ "corne_left", "corne_right" ]
-# include:
-#   - board: bdn9_rev2
-#   - board: nice_nano
-#     shield: reviung41
-#   - board: nice_nano
-#     shield: corne_left
-#     snippet: studio-rpc-usb-uart
-#     cmake-args: -DCONFIG_ZMK_STUDIO=y
-#     artifact-name: corne_left_with_studio
-#
+#board: [ "seeeduino_xiao_ble" ]
+# shield: [ "nutymini_left", "nutymini_right" ]
 ---
+include:
+  - board: seeeduino_xiao_ble
+    shield: nutycornenanot_left  rgbled_adapter
+    snippet: cdc-acm-console studio-rpc-usb-uart  
+    cmake-args: -DCONFIG_ZMK_STUDIO=y -DCONFIG_ZMK_SPLIT=y -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=y
+
+  - board: seeeduino_xiao_ble
+    shield: nutycornenanot_right  rgbled_adapter
+    snippet: cdc-acm-console   
+    cmake-args: -DCONFIG_ZMK_STUDIO=y -DCONFIG_ZMK_SPLIT=y -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n
+  
+#  - board: seeeduino_xiao_ble
+#    shield: nutycornenanot_dongle  rgbled_adapter
+#    snippet: studio-rpc-usb-uart cdc-acm-console 
+#    cmake-args: -DCONFIG_ZMK_STUDIO=y
+
+  - board: seeeduino_xiao_ble
+    shield: settings_reset
+
+
+
+
+    

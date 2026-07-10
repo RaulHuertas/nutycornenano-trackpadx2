@@ -1,0 +1,11 @@
+# No whitespace after the comma or in your part name!
+config SHIELD_NUTYCORNENANOT_LEFT
+    def_bool $(shields_list_contains,nutycornenanot_left)
+
+# No whitespace after the comma or in your part name!
+config SHIELD_NUTYCORNENANOT_RIGHT
+    def_bool $(shields_list_contains,nutycornenanot_right)
+
+# No whitespace after the comma or in your part name!
+config SHIELD_NUTYCORNENANOT_DONGLE
+    def_bool $(shields_list_contains,nutycornenanot_dongle)
