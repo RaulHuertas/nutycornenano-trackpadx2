@@ -51,6 +51,6 @@
 
 &trackpad {
     status = "okay";
-}
+};
 
 
